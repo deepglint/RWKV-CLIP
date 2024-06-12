@@ -1,7 +1,7 @@
 # RWKV-CLIP: A Robust Vision-Language Representation Learner
 
 
-> **RWKV-CLIP: A Robust Vision-Language Representation Learner** <br>
+> **[RWKV-CLIP: A Robust Vision-Language Representation Learner](https://arxiv.org/abs/2406.06973)** <br>
 Tiancheng Gu,</span>
 <a href="https://kaicheng-yang0828.github.io">Kaicheng Yang</a>,</span>
 Xiang An,</span>
@@ -12,7 +12,7 @@ Dongnan Liu,</span>
 
 
 ## 📣 News
-- [2024/06/07]:✨The paper of RWKV-CLIP is submitted to arXiv.
+- [2024/06/11]:✨The paper of [RWKV-CLIP](https://arxiv.org/abs/2406.06973) is submitted to arXiv.
   
 ## 💡 Introduction
 We introduce a diverse description generation framework that can leverage Large Language Models(LLMs) to synthesize and refine content from web-based texts, synthetic captions, and detection tags. Beneficial form detection tags, more semantic information can be introduced from images, which in turn further constrains LLMs and mitigates hallucinations.
@@ -32,13 +32,20 @@ We propose RWKV-CLIP, the first RWKV-driven vision-language representation learn
 
 
 ## 📖 Citation
-
-```bibtex
-
+If you find this repository useful, please use the following BibTeX entry for citation.
+```latex
+@misc{gu2024rwkvclip,
+      title={RWKV-CLIP: A Robust Vision-Language Representation Learner}, 
+      author={Tiancheng Gu and Kaicheng Yang and Xiang An and Ziyong Feng and Dongnan Liu and Weidong Cai and Jiankang Deng},
+      year={2024},
+      eprint={2406.06973},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 ```
 
 ### Acknowledgements
-We thank [RWKV](https://github.com/BlinkDL/RWKV-LM), [VisionRWKV](https://github.com/OpenGVLab/Vision-RWKV), [OFA](https://github.com/OFA-Sys/OFA), and [open_clip](https://github.com/mlfoundations/open_clip) for their work.
+This project is based on [RWKV](https://github.com/BlinkDL/RWKV-LM), [VisionRWKV](https://github.com/OpenGVLab/Vision-RWKV), [RAM++](https://github.com/xinyu1205/recognize-anything), [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory), [vllm](https://github.com/vllm-project/vllm), [OFA](https://github.com/OFA-Sys/OFA), and [open_clip](https://github.com/mlfoundations/open_clip), thanks for their works.
 
 ### License
 
