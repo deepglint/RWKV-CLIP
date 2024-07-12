@@ -33,8 +33,15 @@ We propose RWKV-CLIP, the first RWKV-driven vision-language representation learn
 
 
 ## Environment installation
+```bash
+conda create -n rwkv_clip python=3.10 -y
+conda activate rwkv_clip
 
-    pip install -r requirments.txt
+pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118
+pip install -U openmim
+mim install mmcv-full==1.7.2
+pip install -r requirements.txt
+```
 
 ## Instruction Dataset
 - The 70K instruction dataset used to finetune LLaMA3 can be download from the [Google Drive](https://drive.google.com/file/d/1C5mAECH2rDnZfcOQmJpBXpfbhgEcm2C1/view?usp=drive_link) or [BaiduYun](https://pan.baidu.com/s/1xwGY_i-ADBd26pom9yENzA?pwd=zby2)

@@ -1,0 +1,16 @@
+timm==0.9.16
+mmcls==0.25.0
+tensorboard 
+mxnet==1.9.1 
+transformers==4.39.2 
+numpy==1.12.0 
+opencv-python 
+termcolor 
+yacs 
+pyyaml 
+scipy 
+tqdm
+nvidia-dali-cuda110==1.34.0
+ftfy==6.2.0
+mxnet==1.9.1
+scikit-learn==1.4.1.post1
