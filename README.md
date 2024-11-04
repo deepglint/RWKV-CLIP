@@ -12,7 +12,7 @@ Ziyong Feng,</span>
 
 ## 📣 News
 - [2024/10/14]:✨The training data [YFCC15M](https://huggingface.co/datasets/Kaichengalex/YFCC15M) has been released in 🤗Hugging Face.
-- [2024/9/20]:🎉RWKV-CLIP has been aeecpted by EMNLP2024(Main)
+- [2024/09/20]:🎉RWKV-CLIP has been aeecpted by EMNLP2024(Main)
 - [2024/06/25]:✨The training code and pertrained weight of RWKV-CLIP have been released.
 - [2024/06/11]:✨The paper of [RWKV-CLIP](https://arxiv.org/abs/2406.06973) is submitted to arXiv.
 ## 💡 Highlights
@@ -41,6 +41,46 @@ pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https
 pip install -U openmim
 mim install mmcv-full==1.7.2
 pip install -r requirements.txt
+```
+
+## Usage
+```bash
+git clone https://github.com/deepglint/RWKV-CLIP.git
+cd RWKV-CLIP
+```
+
+```python
+import os
+import clip
+import json
+import torch
+import warnings
+from PIL import Image
+from torch.nn import functional as F
+from open_clip.transform import image_transform
+from model_config.utils_notebook import load_model_configs
+warnings.filterwarnings('ignore')
+args = load_model_configs('model_config/RWKV_CLIP_B32.json')
+from model.utils import create_RWKV_Model
+
+transform = image_transform(args.input_size, False)
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
+# Transfer to input type
+image = transform(Image.open("figure/Diverse_description_generation_00.png")).unsqueeze(0).to(device) 
+text = clip.tokenize(["a diagram", "a dog", "a cat"]).to(device)
+
+# Load model
+RWKV_CLIP_model = create_RWKV_Model(args, model_weight_path = "Model_pretrained_weight.pt").to(device)
+RWKV_CLIP_model.eval()
+
+# Calculate score
+with torch.no_grad():
+    image_features, text_features, logit_scale = RWKV_CLIP_model(image, text)
+    image_features /= image_features.norm(dim=-1, keepdim=True)
+    text_features /= text_features.norm(dim=-1, keepdim=True)
+    text_probs = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+print("Label probs: ", text_probs.tolist()) # Label probs: [[1., 0., 0.]]
 ```
 
 ## Instruction Dataset

@@ -28,8 +28,8 @@ MyFunction = __nop
 # CUDA Kernel
 ########################################################################################################
 wkv6_text_cuda = load(name="wkv6_text_birectional",
-                sources=["model/cuda_text/wkv6_text_op.cpp", 
-                        "model/cuda_text/wkv6_text_cuda.cu"],
+                sources=["model/cuda_text/wkv6_op.cpp", 
+                        "model/cuda_text/wkv6_cuda.cu"],
                 verbose=True, extra_cuda_cflags=["-res-usage", "--use_fast_math",
                 "-O3", "-Xptxas -O3", 
                 "--extra-device-vectorization", f"-D_N_={HEAD_SIZE}", 

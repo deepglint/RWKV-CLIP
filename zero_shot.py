@@ -187,7 +187,7 @@ def run(model, classifier, dataset, dataset_module, dataset_name, num_dataset, s
                 with open(args.output_dir, 'a') as f:
                     f.write(str_data + '\n')
             
-def load_model_weight(model, model_weight)
+def load_model_weight(model, model_weight):
     state_dict = torch.load(model_weight)
     state_dict_removed = {}
     for k, value in state_dict.items():

@@ -22,7 +22,7 @@ def setup_seed(seed, cuda_deterministic=True):
         torch.backends.cudnn.deterministic = False
         torch.backends.cudnn.benchmark = True
         
-def load_model_weight(model, model_weight)
+def load_model_weight(model, model_weight):
     state_dict = torch.load(model_weight)
     state_dict_removed = {}
     for k, value in state_dict.items():
@@ -229,7 +229,7 @@ if __name__ == '__main__':
     if args.dim_ffn <= 0:
         args.dim_ffn = int((args.n_embd * 3.5) // 32 * 32) # default = 3.5x emb size
     if args.text_num_head != 0:
-        assert args.n_embd % args.text_num_head == 0, 
+        assert args.n_embd % args.text_num_head == 0
         args.head_size = args.n_embd // args.text_num_head
     args.with_cp = False
     

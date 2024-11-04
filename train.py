@@ -207,7 +207,7 @@ def get_args():
     if args.dim_ffn <= 0:
         args.dim_ffn = int((args.n_embd * 3.5) // 32 * 32) # default = 3.5x emb size
     if args.text_num_head != 0:
-        assert args.n_embd % args.text_num_head == 0, 
+        assert args.n_embd % args.text_num_head == 0
         args.head_size = args.n_embd // args.text_num_head
 
     os.environ["RWKV_CTXLEN"] = str(args.ctx_len)

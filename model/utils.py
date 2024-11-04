@@ -2,6 +2,7 @@ import torch
 import numpy as np
 from torch import nn
 from torch.nn import functional as F
+from model import Text_RWKV, Image_RWKV
 
 class GlobalAveragePooling(nn.Module):
     """Global Average Pooling neck.
@@ -87,3 +88,39 @@ class get_model(nn.Module):
         ################## Text ##################
         text_embedding = WarperCLIP_V_T_RWKV_text_change_head(self, text)
         return image_embedding, text_embedding, self.logit_scale.exp()
+
+##################################################################################
+######################################### Load Model weight ######################
+##################################################################################
+def load_model_weight(model, model_weight):
+    state_dict = torch.load(model_weight)
+    state_dict_removed = {}
+    for k, value in state_dict.items():
+        k_removed = k
+        if "module." in k_removed:
+            k_removed = k.split("module.")[-1]
+        if '_orig_mod.' in k_removed:
+            k_removed = k_removed.split('_orig_mod.')[-1]
+            state_dict_removed[k_removed] = value
+        else:
+            state_dict_removed[k_removed] = value
+    model.load_state_dict(state_dict_removed, strict=True)
+    return model
+
+##################################################################################
+######################################### Create Model ###########################
+##################################################################################
+
+def create_RWKV_Model(args, model_weight_path = None):
+    model_image_rwkv = Image_RWKV(img_size = args.input_size, 
+                            patch_size= args.image_patch_size,
+                            embed_dims = args.image_embed_dims,
+                            hidden_rate= args.image_hidden_rate,
+                            depth=args.image_depth,
+                            num_heads=args.image_num_heads,
+                            output_cls_token=args.image_output_cls_token,
+                            with_cls_token=args.image_with_cls_token)
+    model_text_rwkv = Text_RWKV(args)
+    model = get_model(model_image_rwkv, model_text_rwkv, image_cls_token=args.image_output_cls_token)
+    if model_weight_path != None: model = load_model_weight(model, model_weight_path)
+    return model

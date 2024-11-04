@@ -28,6 +28,7 @@ precision=bf16
 open_checkpoint=False
 traindata=TRAINING_DATA_PATH
 output=OUTPUT_PATH
+dropout=0.0
 
 for((node_rank=0;node_rank<${#ip_list[*]};node_rank++));
 do
