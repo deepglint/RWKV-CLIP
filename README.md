@@ -60,7 +60,7 @@ from torch.nn import functional as F
 from open_clip.transform import image_transform
 from model_config.utils_notebook import load_model_configs
 warnings.filterwarnings('ignore')
-args = load_model_configs('model_config/RWKV_CLIP_B32.json')
+args = load_model_configs('model_config/RWKV_CLIP_B32.json') # model_config/RWKV_CLIP_B16.json
 from model.utils import create_RWKV_Model
 
 transform = image_transform(args.input_size, False)
@@ -94,8 +94,16 @@ print("Label probs: ", text_probs.tolist()) # Label probs: [[1., 0., 0.]]
 ## Generate rec files
 - To improve the training efficience, we use [MXNet](https://github.com/apache/mxnet) to save the YFCC15M dataset to rec file, and use NVIDIA [DALI](https://github.com/NVIDIA/DALI) to accelerate data loading and pre-processing. The sample code to generate rec files is in [data2rec.py](data2rec.py).
 
-## Pretrained Model Weight
-- You can download the pretrained model weight of RWKV-CLIP-B/32 from [Google Drive](https://drive.google.com/file/d/1OnYoYt5oBZukv0jJ94wO_Uv5QUojHDk-/view?usp=drive_link) or [BaiduYun](https://pan.baidu.com/s/1PTwT84wSTMYt-M6sEu4IGQ?pwd=mfvh)
+## Pretrained Model Weights
+
+|  Model   |   Dataset   |      Download       |
+|:--------:|:--------:| ------:|
+| RWKV-CLIP-B/32  |    YFCC15M   |   🤗[ckpt](https://huggingface.co/Kaichengalex/RWKV-CLIP-B32-YFCC15M/resolve/main/model_31.pt)    \| [cfg](model_config/RWKV_CLIP_B32.json)        |
+| RWKV-CLIP-B/32  |    LAION10M   |   🤗[ckpt](https://huggingface.co/Kaichengalex/RWKV-CLIP-B32-LAION10M/rsolve/main/model_31.pt)    \| [cfg](model_config/RWKV_CLIP_B32.json)       |
+| RWKV-CLIP-B/16  |    LAION10M   |  🤗[ckpt](https://huggingface.co/Kaichengalex/RWKV-CLIP-B16-LAION10M/resolve/main/model_31.pt) \| [cfg](model_config/RWKV_CLIP_B16.json) |
+| RWKV-CLIP-B/32  |    LAION30M   |  🤗[ckpt](https://huggingface.co/Kaichengalex/RWKV-CLIP-B32-LAION30M/resolve/main/model_31.pt)    \| [cfg](model_config/RWKV_CLIP_B32.json)        |
+
+- You can download the pretrained model weight of RWKV-CLIP-B/32 on YFCC15M from [Google Drive](https://drive.google.com/file/d/1OnYoYt5oBZukv0jJ94wO_Uv5QUojHDk-/view?usp=drive_link) or [BaiduYun](https://pan.baidu.com/s/1PTwT84wSTMYt-M6sEu4IGQ?pwd=mfvh)
 
 ## Training
 
