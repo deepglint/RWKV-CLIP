@@ -3,7 +3,7 @@ mmcls==0.25.0
 tensorboard 
 mxnet==1.9.1 
 transformers==4.39.2 
-numpy==1.12.0 
+numpy==1.23.0 
 opencv-python 
 termcolor 
 yacs 
