@@ -10,6 +10,8 @@ Ziyong Feng,</span>
 <a href="https://weidong-tom-cai.github.io/">Weidong Cai</a>,</span>
 <a href="https://jiankangdeng.github.io">Jiankang Deng</a></span>
 
+<a href="https://deepwiki.com/deepglint/RWKV-CLIP"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"></a>
+
 ## 📣 News
 - [2024/10/14]:✨The training data [YFCC15M](https://huggingface.co/datasets/Kaichengalex/YFCC15M) has been released in 🤗Hugging Face.
 - [2024/09/20]:🎉RWKV-CLIP has been aeecpted by EMNLP2024(Main)
