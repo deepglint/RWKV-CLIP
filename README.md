@@ -13,6 +13,7 @@ Ziyong Feng,</span>
 <a href="https://deepwiki.com/deepglint/RWKV-CLIP"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"></a>
 
 ## 📣 News
+- [2025/12/14]:✨To facilitate the download of the YFCC15M dataset, we provide [fast download script](data/download_YFCC15M.sh).
 - [2024/10/14]:✨The training data [YFCC15M](https://huggingface.co/datasets/Kaichengalex/YFCC15M) has been released in 🤗Hugging Face.
 - [2024/09/20]:🎉RWKV-CLIP has been aeecpted by EMNLP2024(Main)
 - [2024/06/25]:✨The training code and pertrained weight of RWKV-CLIP have been released.
